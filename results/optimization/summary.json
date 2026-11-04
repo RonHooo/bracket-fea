@@ -1,0 +1,81 @@
+{
+  "n": 400,
+  "ok_stress": 400,
+  "ok_freq": 145,
+  "ok_life": 26,
+  "feasible": 17,
+  "feasible_with_margin": 16,
+  "hot_spot_counts": {
+    "gusset toe (on base)": 154,
+    "base plate (bolt side)": 154,
+    "gusset tip (on upright)": 58,
+    "lightening hole": 21,
+    "root fillet": 9,
+    "upright": 4
+  },
+  "by_gussets": {
+    "f1": {
+      "no gussets": 77.89896,
+      "with gussets": 87.89927
+    },
+    "life_h": {
+      "no gussets": 244.61229981246777,
+      "with gussets": 8.081917284760545
+    },
+    "mass_kg": {
+      "no gussets": 0.7775829437041606,
+      "with gussets": 0.8139900160706401
+    },
+    "vm_max": {
+      "no gussets": 28.511276874683922,
+      "with gussets": 33.96550815190933
+    }
+  },
+  "feasible_by_gussets": {
+    "no gussets": 0.125,
+    "with gussets": 0.0
+  },
+  "corr_log_life": {
+    "t_b": 0.6637948362177264,
+    "t_w": 0.3242821669642704,
+    "r_f": 0.07049462809142557,
+    "L_g": -0.43309322995460053,
+    "t_g": 0.02166969895138561,
+    "d_h": 0.05178654165931928
+  },
+  "corr_f1": {
+    "t_b": 0.9321568259801623,
+    "t_w": 0.35635555642639477,
+    "r_f": -0.0033427708923180767,
+    "L_g": 0.23684147035624675,
+    "t_g": 0.05356880606607575,
+    "d_h": 0.01146155393726317
+  },
+  "lightest_feasible": {
+    "t_b": 9.902,
+    "t_w": 7.071,
+    "r_f": 8.598,
+    "L_g": 0.0,
+    "t_g": 6.326,
+    "d_h": 9.738,
+    "mass_kg": 0.8836104101567411,
+    "vm_max": 16.773717967665444,
+    "f1": 107.7025,
+    "life_h": 3262.3802348025865,
+    "hot_spot": "base plate (bolt side)"
+  },
+  "plain_reference_thinnest_feasible": {
+    "design": "plain t=9",
+    "mass_kg": 0.9318353811212671,
+    "f1": 104.3047,
+    "life_h": 1659.0517912630228
+  },
+  "lightest_feasible_fine_mesh": {
+    "mass_kg": 0.8836104101567411,
+    "vm_max": 16.807477930876686,
+    "f1": 107.6477,
+    "life_h": 2893.851761690939,
+    "feasible": true,
+    "n_nodes": 77125
+  }
+}

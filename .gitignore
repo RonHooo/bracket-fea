@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+*.frd
+*.dat
+*.eig
+*.sta
+*.cvg
+*.12d
+spooles.out
+results/verification/work_*/
+*_log.txt
+.DS_Store
