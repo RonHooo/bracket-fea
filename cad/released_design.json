@@ -1,0 +1,16 @@
+{
+  "name": "BRK-001 rev A",
+  "description": "Released dimensions of the lightest feasible design from studies/optimize.py, rounded to values that are easy to make",
+  "t_b": 10.0,
+  "t_w": 7.0,
+  "r_f": 8.0,
+  "d_h": 10.0,
+  "L_g": 0.0,
+  "optimizer_values": {"t_b": 9.902, "t_w": 7.071, "r_f": 8.598, "d_h": 9.738, "L_g": 0.0},
+  "rounding_reasons": {
+    "t_b": "nearest whole mm",
+    "t_w": "nearest whole mm (rounded down, re-checked with FEA)",
+    "r_f": "R8 can be cut with a standard 16 mm end mill (rounded down, re-checked with FEA)",
+    "d_h": "standard 10 mm drill"
+  }
+}

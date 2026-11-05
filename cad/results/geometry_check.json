@@ -1,0 +1,112 @@
+[
+  {
+    "case": "released",
+    "t_b": 10.0,
+    "t_w": 7.0,
+    "r_f": 8.0,
+    "d_h": 10.0,
+    "mass_kg": 0.8837063729193245,
+    "v_freecad": 112574.06024449995,
+    "v_gmsh_native": 112574.06024449972,
+    "v_step_in_gmsh": 112574.06024449972,
+    "n_step_volumes": 1,
+    "rel_diff_native": 1.9984014443252818e-15,
+    "rel_diff_step": 0.0,
+    "bbox_max_diff": 1.0000000177635683e-07,
+    "bbox_step_max_diff": 2.1316282072803006e-14,
+    "sketch_fully_constrained": {
+      "ProfileSketch": true,
+      "BoltHoleSketch": true,
+      "MountHoleSketch": true,
+      "LighteningHoleSketch": true
+    },
+    "features": [
+      "Pad",
+      "Hole",
+      "Hole",
+      "Pocket"
+    ]
+  },
+  {
+    "case": "optimizer",
+    "t_b": 9.902,
+    "t_w": 7.071,
+    "r_f": 8.598,
+    "d_h": 9.738,
+    "mass_kg": 0.8836104101567425,
+    "v_freecad": 112561.83568875701,
+    "v_gmsh_native": 112561.83568875682,
+    "v_step_in_gmsh": 112561.83568875676,
+    "n_step_volumes": 1,
+    "rel_diff_native": 1.7763568394002505e-15,
+    "rel_diff_step": -5.551115123125783e-16,
+    "bbox_max_diff": 1.0000000177635683e-07,
+    "bbox_step_max_diff": 2.1316282072803006e-14,
+    "sketch_fully_constrained": {
+      "ProfileSketch": true,
+      "BoltHoleSketch": true,
+      "MountHoleSketch": true,
+      "LighteningHoleSketch": true
+    },
+    "features": [
+      "Pad",
+      "Hole",
+      "Hole",
+      "Pocket"
+    ]
+  },
+  {
+    "case": "baseline",
+    "t_b": 6.0,
+    "t_w": 6.0,
+    "r_f": 5.0,
+    "d_h": 0.0,
+    "mass_kg": 0.6320972849909547,
+    "v_freecad": 80521.94713260571,
+    "v_gmsh_native": 80521.94713260556,
+    "v_step_in_gmsh": 80521.94713260565,
+    "n_step_volumes": 1,
+    "rel_diff_native": 1.7763568394002505e-15,
+    "rel_diff_step": 1.1102230246251565e-15,
+    "bbox_max_diff": 1.0000000177635683e-07,
+    "bbox_step_max_diff": 2.1316282072803006e-14,
+    "sketch_fully_constrained": {
+      "ProfileSketch": true,
+      "BoltHoleSketch": true,
+      "MountHoleSketch": true
+    },
+    "features": [
+      "Pad",
+      "Hole",
+      "Hole"
+    ]
+  },
+  {
+    "case": "screened",
+    "t_b": 9.143,
+    "t_w": 7.407,
+    "r_f": 7.31,
+    "d_h": 12.716,
+    "mass_kg": 0.8564686986151656,
+    "v_freecad": 109104.29281721856,
+    "v_gmsh_native": 109104.29281721835,
+    "v_step_in_gmsh": 109104.29281721832,
+    "n_step_volumes": 1,
+    "rel_diff_native": 1.9984014443252818e-15,
+    "rel_diff_step": -2.220446049250313e-16,
+    "bbox_max_diff": 1.0000000177635683e-07,
+    "bbox_step_max_diff": 2.1316282072803006e-14,
+    "sketch_fully_constrained": {
+      "ProfileSketch": true,
+      "BoltHoleSketch": true,
+      "MountHoleSketch": true,
+      "LighteningHoleSketch": true
+    },
+    "features": [
+      "Pad",
+      "Hole",
+      "Hole",
+      "Pocket"
+    ]
+  }
+]

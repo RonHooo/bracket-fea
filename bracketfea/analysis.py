@@ -118,14 +118,16 @@ def random_vibration(res: DesignResult, lc: LoadCase, nodes_idx: np.ndarray | No
 def run_design(p: BracketParams, lc: LoadCase | None = None, ms: MeshSettings | None = None,
                workdir: str | Path | None = None, n_modes: int = 10, threads: int = 1,
                do_random: bool = True, keep_modal: bool = True, keep_files: bool = False,
-               ssd: dict | None = None) -> DesignResult:
+               ssd: dict | None = None, mesh: BracketMesh | None = None) -> DesignResult:
+    """Analyse one design. Pass `mesh` to skip meshing (e.g. a mesh of geometry imported from CAD)."""
     lc = lc or LoadCase()
     ms = ms or design_mesh_settings(p)
     tmp = Path(tempfile.mkdtemp(prefix="bracket_", dir=workdir))
     timing = {}
     try:
         t0 = time.perf_counter()
-        mesh = mesh_bracket(p, ms)
+        if mesh is None:
+            mesh = mesh_bracket(p, ms)
         timing["mesh"] = time.perf_counter() - t0
 
         t0 = time.perf_counter()

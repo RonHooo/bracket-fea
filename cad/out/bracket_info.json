@@ -1,0 +1,62 @@
+{
+  "params": {
+    "W": 70.0,
+    "H": 100.0,
+    "L_b": 100.0,
+    "x_bolt": 80.0,
+    "y_bolt": 20.0,
+    "d_bolt": 9.0,
+    "z_mount": 78.0,
+    "d_mount": 11.0,
+    "t_b": 10.0,
+    "t_w": 7.0,
+    "r_f": 8.0,
+    "d_h": 10.0
+  },
+  "volume_mm3": 112574.06024449995,
+  "mass_kg": 0.8837063729193245,
+  "bbox": [
+    0.0,
+    -35.00000000000002,
+    -7.771561172376107e-15,
+    100.00000000000007,
+    35.00000000000004,
+    100.00000000000009
+  ],
+  "valid": true,
+  "n_solids": 1,
+  "n_faces": 13,
+  "hole_diameters": {
+    "bolt": 9.0,
+    "mount": 11.0
+  },
+  "features": [
+    [
+      "Plate",
+      "Pad"
+    ],
+    [
+      "BoltHoles",
+      "Hole"
+    ],
+    [
+      "MountHole",
+      "Hole"
+    ],
+    [
+      "LighteningHole",
+      "Pocket"
+    ]
+  ],
+  "sketch_fully_constrained": {
+    "ProfileSketch": true,
+    "BoltHoleSketch": true,
+    "MountHoleSketch": true,
+    "LighteningHoleSketch": true
+  },
+  "freecad": [
+    "1",
+    "1",
+    "4"
+  ]
+}

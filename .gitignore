@@ -11,3 +11,11 @@ spooles.out
 results/verification/work_*/
 *_log.txt
 .DS_Store
+# FreeCAD: backups and files the cad/ scripts regenerate
+*.FCBak
+cad/out/geometry_check/
+cad/out/fc_gui.out
+cad/out/drawings/*.png
+cad/out/drawings/*.log
+cad/out/portfolio_tmp/
+cad/results/logs/*.flag

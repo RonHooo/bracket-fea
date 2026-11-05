@@ -1,0 +1,261 @@
+{
+  "container": "Assembly::AssemblyObject",
+  "tapped_hole_diameters": {
+    "M8": 6.8,
+    "M10": 8.5
+  },
+  "instances": [
+    [
+      "plate",
+      "MountingPlate",
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    [
+      "bracket",
+      "Bracket",
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    [
+      "component",
+      "Component",
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    [
+      "washer_m8",
+      "WasherM8_1",
+      [
+        80.0,
+        20.0,
+        10.0
+      ]
+    ],
+    [
+      "screw_m8",
+      "ScrewM8_1",
+      [
+        80.0,
+        20.0,
+        11.6
+      ]
+    ],
+    [
+      "washer_m8",
+      "WasherM8_2",
+      [
+        80.0,
+        -20.0,
+        10.0
+      ]
+    ],
+    [
+      "screw_m8",
+      "ScrewM8_2",
+      [
+        80.0,
+        -20.0,
+        11.6
+      ]
+    ],
+    [
+      "washer_m10",
+      "WasherM10",
+      [
+        7.0,
+        0.0,
+        78.0
+      ]
+    ],
+    [
+      "screw_m10",
+      "ScrewM10",
+      [
+        9.0,
+        0.0,
+        78.0
+      ]
+    ]
+  ],
+  "interference": [
+    {
+      "a": "MountingPlate",
+      "b": "Bracket",
+      "overlap_mm3": 0.0,
+      "min_distance_mm": 0.0,
+      "status": "contact"
+    },
+    {
+      "a": "MountingPlate",
+      "b": "ScrewM8_1",
+      "overlap_mm3": 117.16883960828487,
+      "min_distance_mm": 0.0,
+      "expected_thread_overlap_mm3": 117.16883960828494,
+      "status": "thread engagement (expected)"
+    },
+    {
+      "a": "MountingPlate",
+      "b": "ScrewM8_2",
+      "overlap_mm3": 117.16883960828487,
+      "min_distance_mm": 0.0,
+      "expected_thread_overlap_mm3": 117.16883960828494,
+      "status": "thread engagement (expected)"
+    },
+    {
+      "a": "Bracket",
+      "b": "Component",
+      "overlap_mm3": 0.0,
+      "min_distance_mm": 5.002266277759565e-14,
+      "status": "contact"
+    },
+    {
+      "a": "Bracket",
+      "b": "WasherM8_1",
+      "overlap_mm3": 0.0,
+      "min_distance_mm": 5.329070518200751e-15,
+      "status": "contact"
+    },
+    {
+      "a": "Bracket",
+      "b": "ScrewM8_1",
+      "overlap_mm3": 0.0,
+      "min_distance_mm": 0.49999999999994316,
+      "status": "clear"
+    },
+    {
+      "a": "Bracket",
+      "b": "WasherM8_2",
+      "overlap_mm3": 0.0,
+      "min_distance_mm": 3.552713678800501e-15,
+      "status": "contact"
+    },
+    {
+      "a": "Bracket",
+      "b": "ScrewM8_2",
+      "overlap_mm3": 0.0,
+      "min_distance_mm": 0.49999999999994316,
+      "status": "clear"
+    },
+    {
+      "a": "Bracket",
+      "b": "WasherM10",
+      "overlap_mm3": 0.0,
+      "min_distance_mm": 1.7763568394002505e-15,
+      "status": "contact"
+    },
+    {
+      "a": "Bracket",
+      "b": "ScrewM10",
+      "overlap_mm3": 0.0,
+      "min_distance_mm": 0.49999999999999634,
+      "status": "clear"
+    },
+    {
+      "a": "Component",
+      "b": "ScrewM10",
+      "overlap_mm3": 348.71678454846074,
+      "min_distance_mm": 0.0,
+      "expected_thread_overlap_mm3": 348.71678454846705,
+      "status": "thread engagement (expected)"
+    },
+    {
+      "a": "WasherM8_1",
+      "b": "ScrewM8_1",
+      "overlap_mm3": 0.0,
+      "min_distance_mm": 0.0,
+      "status": "contact"
+    },
+    {
+      "a": "WasherM8_2",
+      "b": "ScrewM8_2",
+      "overlap_mm3": 0.0,
+      "min_distance_mm": 0.0,
+      "status": "contact"
+    },
+    {
+      "a": "WasherM10",
+      "b": "ScrewM10",
+      "overlap_mm3": 0.0,
+      "min_distance_mm": 0.0,
+      "status": "contact"
+    }
+  ],
+  "clearance_mm": {
+    "ScrewM8_1": 0.49999999999994316,
+    "ScrewM8_2": 0.49999999999994316,
+    "ScrewM10_shank_in_upright": 0.4999999999999864
+  },
+  "bom": [
+    {
+      "part_no": "MNT-001",
+      "description": "Mounting plate 210 x 120 x 12 (engine-side structure)",
+      "material": "Steel S355",
+      "qty": 1,
+      "unit_mass_kg": 2.3669979127933756
+    },
+    {
+      "part_no": "BRK-001 rev A",
+      "description": "L-bracket, machined",
+      "material": "AISI 1020 HR",
+      "qty": 1,
+      "unit_mass_kg": 0.8837063729193221
+    },
+    {
+      "part_no": "ECM-ENV-01",
+      "description": "Component envelope, 2 kg (supplied part)",
+      "material": "Al housing + electronics",
+      "qty": 1,
+      "unit_mass_kg": 2.0
+    },
+    {
+      "part_no": "ISO 7089 8-200HV",
+      "description": "Plain washer M8",
+      "material": "Steel 200HV",
+      "qty": 2,
+      "unit_mass_kg": 0.00182929159688051
+    },
+    {
+      "part_no": "ISO 4017 M8x20-8.8",
+      "description": "Hex head screw M8 x 20",
+      "material": "Steel 8.8, zinc plated",
+      "qty": 2,
+      "unit_mass_kg": 0.013916360643063083
+    },
+    {
+      "part_no": "ISO 7089 10-200HV",
+      "description": "Plain washer M10",
+      "material": "Steel 200HV",
+      "qty": 1,
+      "unit_mass_kg": 0.0035728351501572468
+    },
+    {
+      "part_no": "ISO 4017 M10x25-8.8",
+      "description": "Hex head screw M10 x 25",
+      "material": "Steel 8.8, zinc plated",
+      "qty": 1,
+      "unit_mass_kg": 0.026433686298024766
+    }
+  ],
+  "moving_mass_kg": 2.9452041988473914,
+  "moving_cg_mm": [
+    -10.701383486871885,
+    2.060217122046656e-14,
+    60.958742615479004
+  ],
+  "bracket_cg_mm": [
+    31.59482532680625,
+    -1.6621694713649664e-14,
+    24.01712104801026
+  ],
+  "bracket_mass_kg": 0.8837063729193221
+}

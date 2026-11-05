@@ -243,54 +243,62 @@ def mesh_bracket(p: BracketParams, ms: MeshSettings | None = None, msh_path: str
     gmsh.model.add("bracket")
     try:
         vol = build_geometry(p)
-        volume = gmsh.model.occ.getMass(3, vol)
-        groups = _classify_surfaces(p, vol)
-
-        fields = gmsh.model.mesh.field
-        f_d1 = fields.add("Distance")
-        fields.setNumbers(f_d1, "SurfacesList", groups["refine"])
-        fields.setNumber(f_d1, "Sampling", 40)
-        f_t1 = fields.add("Threshold")
-        fields.setNumber(f_t1, "InField", f_d1)
-        fields.setNumber(f_t1, "SizeMin", ms.h_min)
-        fields.setNumber(f_t1, "SizeMax", ms.h_max)
-        fields.setNumber(f_t1, "DistMin", ms.dist_min)
-        fields.setNumber(f_t1, "DistMax", ms.dist_max)
-        f_d2 = fields.add("Distance")
-        fields.setNumbers(f_d2, "SurfacesList", groups["bolt"] + groups["mount"] + groups["lhole"])
-        fields.setNumber(f_d2, "Sampling", 40)
-        f_t2 = fields.add("Threshold")
-        fields.setNumber(f_t2, "InField", f_d2)
-        fields.setNumber(f_t2, "SizeMin", ms.h_hole)
-        fields.setNumber(f_t2, "SizeMax", ms.h_max)
-        fields.setNumber(f_t2, "DistMin", ms.dist_min)
-        fields.setNumber(f_t2, "DistMax", ms.dist_max)
-        f_min = fields.add("Min")
-        fields.setNumbers(f_min, "FieldsList", [f_t1, f_t2])
-        fields.setAsBackgroundMesh(f_min)
-        gmsh.option.setNumber("Mesh.MeshSizeExtendFromBoundary", 0)
-        gmsh.option.setNumber("Mesh.MeshSizeFromPoints", 0)
-        gmsh.option.setNumber("Mesh.MeshSizeFromCurvature", 0)
-        gmsh.option.setNumber("Mesh.Algorithm", 6)
-        gmsh.option.setNumber("Mesh.Algorithm3D", 1)
-        gmsh.option.setNumber("Mesh.Optimize", 1)
-        gmsh.option.setNumber("Mesh.ElementOrder", ms.order)
-        gmsh.option.setNumber("Mesh.SecondOrderLinear", 0)
-        gmsh.option.setNumber("Mesh.HighOrderOptimize", 1)   # untangle curved quadratic elements
-        gmsh.model.mesh.generate(3)
-        _, etags, _ = gmsh.model.mesh.getElements(3)
-        min_sj = gmsh.model.mesh.getElementQualities(np.concatenate(etags), "minSJ")
-        if (min_sj <= 0).any():
-            raise RuntimeError(f"{int((min_sj <= 0).sum())} invalid curved elements after optimisation")
-        if msh_path:
-            gmsh.write(msh_path)
-        mesh = _extract(groups, vol, ms.order)
-        mesh.volume = volume
-        mesh.params = p
-        return mesh
+        return mesh_volume(p, vol, _classify_surfaces(p, vol), ms, msh_path)
     finally:
         if own:
             gmsh.finalize()
+
+
+def mesh_volume(p: BracketParams, vol: int, groups: dict, ms: MeshSettings,
+                msh_path: str | None = None) -> BracketMesh:
+    """Mesh a bracket volume that already exists in the current gmsh model.
+
+    `groups` holds the surface tags "bolt", "mount", "lhole" and "refine" (see `_classify_surfaces`).
+    Used for the native geometry and for geometry imported from a CAD (STEP) file.
+    """
+    volume = gmsh.model.occ.getMass(3, vol)
+    fields = gmsh.model.mesh.field
+    f_d1 = fields.add("Distance")
+    fields.setNumbers(f_d1, "SurfacesList", groups["refine"])
+    fields.setNumber(f_d1, "Sampling", 40)
+    f_t1 = fields.add("Threshold")
+    fields.setNumber(f_t1, "InField", f_d1)
+    fields.setNumber(f_t1, "SizeMin", ms.h_min)
+    fields.setNumber(f_t1, "SizeMax", ms.h_max)
+    fields.setNumber(f_t1, "DistMin", ms.dist_min)
+    fields.setNumber(f_t1, "DistMax", ms.dist_max)
+    f_d2 = fields.add("Distance")
+    fields.setNumbers(f_d2, "SurfacesList", groups["bolt"] + groups["mount"] + groups["lhole"])
+    fields.setNumber(f_d2, "Sampling", 40)
+    f_t2 = fields.add("Threshold")
+    fields.setNumber(f_t2, "InField", f_d2)
+    fields.setNumber(f_t2, "SizeMin", ms.h_hole)
+    fields.setNumber(f_t2, "SizeMax", ms.h_max)
+    fields.setNumber(f_t2, "DistMin", ms.dist_min)
+    fields.setNumber(f_t2, "DistMax", ms.dist_max)
+    f_min = fields.add("Min")
+    fields.setNumbers(f_min, "FieldsList", [f_t1, f_t2])
+    fields.setAsBackgroundMesh(f_min)
+    gmsh.option.setNumber("Mesh.MeshSizeExtendFromBoundary", 0)
+    gmsh.option.setNumber("Mesh.MeshSizeFromPoints", 0)
+    gmsh.option.setNumber("Mesh.MeshSizeFromCurvature", 0)
+    gmsh.option.setNumber("Mesh.Algorithm", 6)
+    gmsh.option.setNumber("Mesh.Algorithm3D", 1)
+    gmsh.option.setNumber("Mesh.Optimize", 1)
+    gmsh.option.setNumber("Mesh.ElementOrder", ms.order)
+    gmsh.option.setNumber("Mesh.SecondOrderLinear", 0)
+    gmsh.option.setNumber("Mesh.HighOrderOptimize", 1)   # untangle curved quadratic elements
+    gmsh.model.mesh.generate(3)
+    _, etags, _ = gmsh.model.mesh.getElements(3)
+    min_sj = gmsh.model.mesh.getElementQualities(np.concatenate(etags), "minSJ")
+    if (min_sj <= 0).any():
+        raise RuntimeError(f"{int((min_sj <= 0).sum())} invalid curved elements after optimisation")
+    if msh_path:
+        gmsh.write(msh_path)
+    mesh = _extract(groups, vol, ms.order)
+    mesh.volume = volume
+    mesh.params = p
+    return mesh
 
 
 def extract_tet10(vol: int | None = None, nper_want: int = 10):
